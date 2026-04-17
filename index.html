@@ -100,9 +100,10 @@
   .hero-wrap {
     background: var(--white);
     display: grid;
-    grid-template-columns: 1fr 420px;
-    min-height: 600px;
+    grid-template-columns: 1fr 440px;
+    min-height: 640px;
     overflow: hidden;
+    max-width: 100%;
   }
 
   .hero {
@@ -110,7 +111,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 680px;
+    max-width: 640px;
   }
 
   .hero-eyebrow {
@@ -191,8 +192,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: 60% top;
     display: block;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--white) 0%, transparent 18%);
+    pointer-events: none;
   }
 
   .trust-card {
@@ -614,7 +623,7 @@
 </nav>
 
 <!-- HERO -->
-<section>
+<section style="overflow:hidden; background: var(--white);">
   <div class="hero-wrap">
     <div class="hero">
       <div class="hero-left">
