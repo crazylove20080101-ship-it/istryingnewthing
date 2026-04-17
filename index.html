@@ -183,17 +183,39 @@
   }
   .btn-outlined:hover { border-color: var(--gray-500); }
 
+  .hero-wrap {
+    background: var(--gray-100);
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 0;
+    min-height: 680px;
+    align-items: center;
+    padding: 4rem 3.5rem 4rem 3.5rem;
+    max-width: 100%;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 560px;
+  }
+
   .hero-image {
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-image img {
     width: 100%;
-    height: 100%;
+    max-width: 400px;
+    height: 540px;
     object-fit: cover;
     object-position: 75% top;
+    border-radius: 20px;
     display: block;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
   }
 
   .trust-card {
@@ -574,9 +596,10 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero-wrap { grid-template-columns: 1fr; min-height: auto; }
-    .hero-image { height: 340px; }
-    .hero { padding: 3rem 1.5rem 2.5rem; max-width: 100%; }
+    .hero-wrap { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; min-height: auto; }
+    .hero-image { justify-content: center; }
+    .hero-image img { max-width: 100%; height: 380px; }
+    .hero { max-width: 100%; }
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .plans-grid { grid-template-columns: repeat(2, 1fr); }
     .flow-steps { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
@@ -615,7 +638,7 @@
 </nav>
 
 <!-- HERO -->
-<section style="overflow:hidden; background: var(--white);">
+<section style="background: var(--gray-100);">
   <div class="hero-wrap">
     <div class="hero">
       <div class="hero-left">
