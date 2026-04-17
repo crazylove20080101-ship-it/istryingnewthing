@@ -97,15 +97,20 @@
   .nav-cta:hover { background: var(--blue-dark) !important; color: var(--white) !important; }
 
   /* ── HERO ── */
-  .hero {
+  .hero-wrap {
     background: var(--white);
-    padding: 5.5rem 2.5rem 4.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: 1fr 420px;
+    min-height: 600px;
+    overflow: hidden;
+  }
+
+  .hero {
+    padding: 5rem 3rem 4.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 680px;
   }
 
   .hero-eyebrow {
@@ -177,10 +182,17 @@
   }
   .btn-outlined:hover { border-color: var(--gray-500); }
 
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .hero-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   .trust-card {
@@ -561,7 +573,9 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+    .hero-wrap { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { height: 340px; }
+    .hero { padding: 3rem 1.5rem 2.5rem; max-width: 100%; }
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .plans-grid { grid-template-columns: repeat(2, 1fr); }
     .flow-steps { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
@@ -601,55 +615,60 @@
 
 <!-- HERO -->
 <section>
-  <div class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-dot"></span>
-        壓王 Sport Liberator × 居家到府服務
-      </div>
-      <h1 class="hero-title">
-        專業肌筋膜管理師<br>
-        <strong>到府服務</strong><br>
-        在家深度恢復
-      </h1>
-      <p class="hero-desc">
-        結合脊骨神經醫學評估與科學化按摩手法，無需出門即可享受頂級肌筋膜管理。CPBL 職棒指定合作品牌，全台運動按摩先行者。
-      </p>
-      <div class="hero-btns">
-        <a href="https://line.me/R/ti/g/@gvn4185y" class="btn-primary">LINE 立即預約</a>
-        <a href="tel:0908622010" class="btn-outlined">0908-622-010</a>
+  <div class="hero-wrap">
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          壓王 Sport Liberator × 居家到府服務
+        </div>
+        <h1 class="hero-title">
+          專業肌筋膜管理師<br>
+          <strong>到府服務</strong><br>
+          在家深度恢復
+        </h1>
+        <p class="hero-desc">
+          結合脊骨神經醫學評估與科學化按摩手法，無需出門即可享受頂級肌筋膜管理。CPBL 職棒指定合作品牌，全台運動按摩先行者。
+        </p>
+        <div class="hero-btns">
+          <a href="https://line.me/R/ti/g/@gvn4185y" class="btn-primary">LINE 立即預約</a>
+          <a href="tel:0908622010" class="btn-outlined">0908-622-010</a>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:2rem;">
+          <div class="trust-card">
+            <div class="trust-icon">🏆</div>
+            <div>
+              <h4>CPBL 職棒指定</h4>
+              <p>職業運動員信賴品牌</p>
+            </div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🔬</div>
+            <div>
+              <h4>脊骨神經手法</h4>
+              <p>從根源改善不復發</p>
+            </div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">👤</div>
+            <div>
+              <h4>一對一評估</h4>
+              <p>個人化調理課程</p>
+            </div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">📱</div>
+            <div>
+              <h4>LINE 全程追蹤</h4>
+              <p>服務後持續關注</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="trust-card">
-        <div class="trust-icon">🏆</div>
-        <div>
-          <h4>CPBL 職棒指定合作</h4>
-          <p>全台職業運動員信賴，明星與頂尖選手的指名選定品牌</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">🔬</div>
-        <div>
-          <h4>脊骨神經醫學手法</h4>
-          <p>結合動作評估與筋膜鏈系統，從根源改善痠痛不復發</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">👤</div>
-        <div>
-          <h4>一對一個人評估</h4>
-          <p>每次服務前完整評估，制定個人化調理課程</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">📱</div>
-        <div>
-          <h4>LINE 全程售後追蹤</h4>
-          <p>服務後持續關注恢復狀況，提供居家保養建議</p>
-        </div>
-      </div>
+    <div class="hero-image">
+      <img src="in-home_massage.png" alt="壓王居家到府按摩服務">
     </div>
   </div>
 </section>
