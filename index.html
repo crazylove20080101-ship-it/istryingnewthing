@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>壓王運動按摩 × 居家到府服務</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0052FF;
+    --blue-dark: #0040CC;
+    --blue-light: #E8EEFF;
+    --yellow: #FFD600;
+    --yellow-dark: #C9A800;
+    --yellow-light: #FFFBE6;
+    --black: #000000;
+    --gray-900: #1a1a1a;
+    --gray-700: #3d3d3d;
+    --gray-500: #757682;
+    --gray-200: #e8e8ec;
+    --gray-100: #f4f4f6;
+    --white: #ffffff;
+    --serif: 'Noto Serif TC', serif;
+    --sans: 'Noto Sans TC', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--gray-100);
+    color: var(--gray-900);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1.5px solid var(--gray-200);
+    padding: 0 2.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--gray-900);
+    text-decoration: none;
+  }
+
+  .nav-logo-dot {
+    width: 28px; height: 28px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--serif);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--blue-dark) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    padding: 5.5rem 2.5rem 4.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--gray-900);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title strong {
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray-500);
+    line-height: 1.85;
+    max-width: 420px;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue-dark); }
+
+  .btn-outlined {
+    display: inline-block;
+    background: var(--white);
+    color: var(--gray-700);
+    font-size: 14px;
+    padding: 11px 24px;
+    border-radius: 4px;
+    border: 1.5px solid var(--gray-200);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .btn-outlined:hover { border-color: var(--gray-500); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trust-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background 0.2s;
+  }
+  .trust-card:hover { background: var(--blue-light); }
+
+  .trust-icon {
+    width: 36px; height: 36px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .trust-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: var(--gray-900);
+  }
+  .trust-card p { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+
+  /* ── YELLOW BAND ── */
+  .yellow-band {
+    background: var(--yellow);
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-item .num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-item .lbl { font-size: 12px; color: rgba(0,0,0,0.6); font-weight: 500; }
+
+  .band-divider { width: 1px; height: 40px; background: rgba(0,0,0,0.15); }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 5rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header { margin-bottom: 2.5rem; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--blue); display: block; }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+  }
+  .section-title strong { font-weight: 600; }
+
+  .section-desc { font-size: 14px; color: var(--gray-500); max-width: 480px; line-height: 1.85; }
+
+  /* ── FEATURES ── */
+  .features-bg { background: var(--white); }
+
+  .features-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .feature-cell {
+    background: var(--gray-100);
+    padding: 1.75rem 1.5rem;
+    transition: background 0.2s;
+  }
+  .feature-cell:hover { background: var(--blue-light); }
+
+  .feat-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--gray-200);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .feat-bar {
+    width: 28px; height: 3px;
+    background: var(--yellow);
+    border-radius: 99px;
+    margin-bottom: 14px;
+  }
+
+  .feature-cell h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .feature-cell p { font-size: 13px; color: var(--gray-500); line-height: 1.75; }
+
+  /* ── PLANS ── */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .plan-card {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--white);
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .plan-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+
+  .plan-card.featured {
+    border-color: var(--blue);
+  }
+  .plan-card.featured::after {
+    content: '推薦';
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
+  }
+
+  .plan-accent { width: 32px; height: 3px; border-radius: 99px; margin-bottom: 14px; }
+  .plan-accent.blue { background: var(--blue); }
+  .plan-accent.yellow { background: var(--yellow); }
+
+  .plan-name { font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .plan-desc { font-size: 12px; color: var(--gray-500); margin-bottom: 1rem; line-height: 1.5; }
+
+  .plan-price {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .plan-price span { font-size: 12px; color: var(--gray-500); font-family: var(--sans); font-weight: 400; }
+
+  .plan-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  /* ── FLOW ── */
+  .flow-bg {
+    background: var(--white);
+    border-top: 1.5px solid var(--gray-200);
+    border-bottom: 1.5px solid var(--gray-200);
+  }
+
+  .flow-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: calc(10% + 8px);
+    right: calc(10% + 8px);
+    height: 1.5px;
+    background: var(--gray-200);
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.75rem;
+  }
+
+  .step-circle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .flow-step:hover .step-circle {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+  }
+
+  .step-title { font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+  .step-desc { font-size: 11px; color: var(--gray-500); line-height: 1.65; }
+
+  /* ── INFO STRIP ── */
+  .info-strip {
+    background: var(--gray-900);
+    padding: 2rem 2.5rem;
+  }
+
+  .info-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .info-item { display: flex; align-items: center; gap: 12px; }
+
+  .info-ico {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .info-item strong { display: block; font-size: 13px; color: var(--white); font-weight: 500; }
+  .info-item p { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--white);
+    padding: 5rem 2.5rem;
+    text-align: center;
+    border-top: 1.5px solid var(--gray-200);
+  }
+
+  .footer-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+  .footer-cta h2 strong { font-weight: 600; color: var(--blue); }
+
+  .footer-cta p { font-size: 14px; color: var(--gray-500); margin-bottom: 2rem; }
+
+  .contact-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .contact-btn.primary {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .contact-btn.primary:hover { background: var(--blue-dark); }
+
+  .contact-btn.inverted {
+    background: var(--black);
+    color: var(--white);
+  }
+  .contact-btn.inverted:hover { background: var(--gray-700); }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.8;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--gray-200);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-bottom .logo {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+    color: var(--gray-900);
+  }
+
+  .footer-bottom .logo span {
+    width: 20px; height: 20px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.28s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+
+  .trust-card { animation: fadeUp 0.5s ease both; }
+  .trust-card:nth-child(1) { animation-delay: 0.2s; }
+  .trust-card:nth-child(2) { animation-delay: 0.3s; }
+  .trust-card:nth-child(3) { animation-delay: 0.4s; }
+  .trust-card:nth-child(4) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .plans-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-steps { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
+    .flow-steps::before { display: none; }
+    .flow-step { flex-direction: row; text-align: left; gap: 12px; }
+    .step-circle { margin-bottom: 0; }
+    nav .nav-links { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .flow-steps { grid-template-columns: 1fr; }
+    .band-divider { display: none; }
+    .yellow-band { gap: 1.5rem; }
+    .section { padding: 3.5rem 1.25rem; }
+    .features-inner { padding: 3.5rem 1.25rem; }
+    .flow-inner { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-dot">壓</div>
+    壓王運動按摩
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">服務特色</a></li>
+    <li><a href="#plans">方案費用</a></li>
+    <li><a href="#flow">服務流程</a></li>
+    <li><a href="tel:0908622010" class="nav-cta">立即預約</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        壓王 Sport Liberator × 居家到府服務
+      </div>
+      <h1 class="hero-title">
+        專業肌筋膜管理師<br>
+        <strong>到府服務</strong><br>
+        在家深度恢復
+      </h1>
+      <p class="hero-desc">
+        結合脊骨神經醫學評估與科學化按摩手法，無需出門即可享受頂級肌筋膜管理。CPBL 職棒指定合作品牌，全台運動按摩先行者。
+      </p>
+      <div class="hero-btns">
+        <a href="https://line.me/R/ti/g/@gvn4185y" class="btn-primary">LINE 立即預約</a>
+        <a href="tel:0908622010" class="btn-outlined">0908-622-010</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="trust-card">
+        <div class="trust-icon">🏆</div>
+        <div>
+          <h4>CPBL 職棒指定合作</h4>
+          <p>全台職業運動員信賴，明星與頂尖選手的指名選定品牌</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔬</div>
+        <div>
+          <h4>脊骨神經醫學手法</h4>
+          <p>結合動作評估與筋膜鏈系統，從根源改善痠痛不復發</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">👤</div>
+        <div>
+          <h4>一對一個人評估</h4>
+          <p>每次服務前完整評估，制定個人化調理課程</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📱</div>
+        <div>
+          <h4>LINE 全程售後追蹤</h4>
+          <p>服務後持續關注恢復狀況，提供居家保養建議</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YELLOW STATS BAND -->
+<div class="yellow-band">
+  <div class="stat-item">
+    <div class="num">3+</div>
+    <div class="lbl">台中市區服務據點</div>
+  </div>
+  <div class="band-divider"></div>
+  <div class="stat-item">
+    <div class="num">100%</div>
+    <div class="lbl">一對一專業服務</div>
+  </div>
+  <div class="band-divider"></div>
+  <div class="stat-item">
+    <div class="num">CPBL</div>
+    <div class="lbl">職棒指定合作品牌</div>
+  </div>
+  <div class="band-divider"></div>
+  <div class="stat-item">
+    <div class="num">LINE</div>
+    <div class="lbl">全程售後追蹤</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-bg" id="features">
+  <div class="features-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">到府服務特色</div>
+      <h2 class="section-title">壓王帶到您家的<br><strong>不只是按摩</strong></h2>
+      <p class="section-desc" style="margin-top:0.5rem;">每一次到府服務都包含完整評估流程，以科學精神了解您的身體，再進行針對性的筋膜調理。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-cell">
+        <div class="feat-num">01</div>
+        <div class="feat-bar"></div>
+        <h3>到府動作評估</h3>
+        <p>管理師攜帶評估工具到府，先進行完整動作評估與體態檢測，找出筋膜緊繃的真正根源再進行按摩。</p>
+      </div>
+      <div class="feature-cell">
+        <div class="feat-num">02</div>
+        <div class="feat-bar"></div>
+        <h3>深層筋膜放鬆</h3>
+        <p>採用功能導向按摩技術，針對斜方肌、菱形肌、肩胛提肌等深層肌群，改善動作補償模式。</p>
+      </div>
+      <div class="feature-cell">
+        <div class="feat-num">03</div>
+        <div class="feat-bar"></div>
+        <h3>個人化居家處方</h3>
+        <p>每次服務結束後提供針對您身體狀況的居家自主訓練建議，讓改善效果持續延伸不反彈。</p>
+      </div>
+      <div class="feature-cell">
+        <div class="feat-num">04</div>
+        <div class="feat-bar"></div>
+        <h3>LINE 長期追蹤</h3>
+        <p>服務完成後透過 LINE 持續關注後續恢復狀況，必要時調整居家保養方向，服務不間斷。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PLANS -->
+<div id="plans">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">服務方案</div>
+      <h2 class="section-title">選擇最適合您的方案</h2>
+      <p class="section-desc" style="margin-top:0.5rem;">所有方案均含動作評估、深層筋膜按摩、居家建議與 LINE 追蹤，依時長與深度分級。</p>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-accent yellow"></div>
+        <div class="plan-name">體驗方案</div>
+        <div class="plan-desc">初次體驗，含基本動作評估</div>
+        <div class="plan-price">$1,500 <span>/ 60 分鐘</span></div>
+        <div class="plan-tags">
+          <span class="tag">動作評估</span>
+          <span class="tag">全身筋膜放鬆</span>
+          <span class="tag">居家建議</span>
+          <span class="tag">LINE 追蹤</span>
+        </div>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-accent blue"></div>
+        <div class="plan-name">深度調理方案</div>
+        <div class="plan-desc">深層肌筋膜 ＋ 體態矯正建議</div>
+        <div class="plan-price">$2,200 <span>/ 90 分鐘</span></div>
+        <div class="plan-tags">
+          <span class="tag">完整動作評估</span>
+          <span class="tag">深層筋膜處理</span>
+          <span class="tag">體態矯正建議</span>
+          <span class="tag">居家運動處方</span>
+          <span class="tag">LINE 追蹤</span>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-accent yellow"></div>
+        <div class="plan-name">運動員方案</div>
+        <div class="plan-desc">賽前賽後恢復，適合健身愛好者</div>
+        <div class="plan-price">$2,800 <span>/ 120 分鐘</span></div>
+        <div class="plan-tags">
+          <span class="tag">賽前賽後評估</span>
+          <span class="tag">強化恢復手法</span>
+          <span class="tag">訓練表現建議</span>
+          <span class="tag">長期追蹤方案</span>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-accent blue"></div>
+        <div class="plan-name">月度保養包</div>
+        <div class="plan-desc">每月 4 次到府，長期追蹤管理</div>
+        <div class="plan-price">$7,200 <span>/ 月</span></div>
+        <div class="plan-tags">
+          <span class="tag">每週 1 次</span>
+          <span class="tag">90 分鐘 / 次</span>
+          <span class="tag">進度追蹤報告</span>
+          <span class="tag">優先預約</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-item">
+      <div class="info-ico">📍</div>
+      <div>
+        <strong>服務範圍</strong>
+        <p>台中市區（其他區域請洽詢）</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-ico">🕐</div>
+      <div>
+        <strong>預約方式</strong>
+        <p>請提前 24 小時預約</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-ico">🛏</div>
+      <div>
+        <strong>準備事項</strong>
+        <p>管理師自備按摩床，預留 3×2 公尺空間</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-ico">💳</div>
+      <div>
+        <strong>付款方式</strong>
+        <p>現金 / 轉帳 / LINE Pay</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOW -->
+<div class="flow-bg" id="flow">
+  <div class="flow-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">服務流程</div>
+      <h2 class="section-title">從預約到恢復<br><strong>全程照顧您</strong></h2>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-circle">01</div>
+        <div>
+          <div class="step-title">線上預約</div>
+          <div class="step-desc">透過 LINE 或電話說明地址、痠痛部位與需求，確認時段</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-circle">02</div>
+        <div>
+          <div class="step-title">管理師到府</div>
+          <div class="step-desc">攜帶專業設備準時抵達，環境準備約 10 分鐘</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-circle">03</div>
+        <div>
+          <div class="step-title">動作評估</div>
+          <div class="step-desc">進行一系列動作評估，找出筋膜緊繃來源與體態狀況</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-circle">04</div>
+        <div>
+          <div class="step-title">科學化按摩</div>
+          <div class="step-desc">依評估結果進行功能導向筋膜按摩，全程確認感受</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-circle">05</div>
+        <div>
+          <div class="step-title">回饋追蹤</div>
+          <div class="step-desc">提供居家運動建議，LINE 持續關注後續恢復狀況</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <h2>準備好讓身體<strong>真正放鬆</strong>了嗎？</h2>
+  <p>立即聯繫我們，安排您的第一次到府服務</p>
+
+  <div class="contact-row">
+    <a href="https://line.me/R/ti/g/@gvn4185y" class="contact-btn primary">💬 LINE ID: @gvn4185y</a>
+    <a href="tel:0908622010" class="contact-btn inverted">📞 0908-622-010</a>
+  </div>
+
+  <p class="footer-note">
+    壓王運動按摩專門店｜台中大業店 / 西屯店 / 北屯店｜台南聖和店<br>
+    本服務不涉及任何醫療行為，不宣稱任何療效
+  </p>
+
+  <div class="footer-bottom">
+    <div class="logo"><span></span> 壓王運動按摩 Sport Liberator</div>
+    <p style="font-size:11px; color:var(--gray-500);">© 2025 壓王運動按摩. All rights reserved.</p>
+  </div>
+</div>
+
+</body>
+</html>
