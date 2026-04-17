@@ -186,11 +186,12 @@
   .hero-wrap {
     background: var(--gray-100);
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-items: center;
     min-height: 680px;
     align-items: center;
-    padding: 4rem 3.5rem 4rem 3.5rem;
+    padding: 4rem 3.5rem;
     max-width: 100%;
   }
 
@@ -209,8 +210,9 @@
 
   .hero-image img {
     width: 100%;
-    max-width: 400px;
-    height: 540px;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: 75% top;
     border-radius: 20px;
